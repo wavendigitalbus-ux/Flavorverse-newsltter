@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import LeftPanel from './components/LeftPanel'
 import RightPanel from './components/RightPanel'
 import Toast from './components/Toast'
+import defaults from './config/defaults.json'
 
 export default function App() {
   // AI Configuration
@@ -10,33 +11,33 @@ export default function App() {
   const [model, setModel] = useState('openrouter/free')
 
   // Content Strategy
-  const [topic, setTopic] = useState('')
-  const [audience, setAudience] = useState('')
-  const [brand, setBrand] = useState('')
-  const [sections, setSections] = useState('3')
-  const [keypoints, setKeypoints] = useState('')
-  const [tone, setTone] = useState('Professional')
+  const [topic, setTopic] = useState(defaults.topic || '')
+  const [audience, setAudience] = useState(defaults.audience || '')
+  const [brand, setBrand] = useState(defaults.brand || '')
+  const [sections, setSections] = useState(defaults.sections || '3')
+  const [keypoints, setKeypoints] = useState(defaults.keypoints || '')
+  const [tone, setTone] = useState(defaults.tone || 'Professional')
 
   // Visual Assets
-  const [logo, setLogo] = useState(null)
-  const [images, setImages] = useState([])
-  const [primaryColor, setPrimaryColor] = useState('#6366F1')
-  const [backgroundColor, setBackgroundColor] = useState('#FFFFFF')
+  const [logo, setLogo] = useState(defaults.logo || null)
+  const [images, setImages] = useState(defaults.images || [])
+  const [primaryColor, setPrimaryColor] = useState(defaults.primaryColor || '#6366F1')
+  const [backgroundColor, setBackgroundColor] = useState(defaults.backgroundColor || '#FFFFFF')
 
   // Footer Settings
-  const [footerCompany, setFooterCompany] = useState('')
-  const [footerAddress, setFooterAddress] = useState('')
-  const [footerEmail, setFooterEmail] = useState('')
-  const [footerWebsite, setFooterWebsite] = useState('')
-  const [footerTagline, setFooterTagline] = useState('')
-  const [footerFb, setFooterFb] = useState('')
-  const [footerIg, setFooterIg] = useState('')
-  const [footerTw, setFooterTw] = useState('')
-  const [footerLi, setFooterLi] = useState('')
+  const [footerCompany, setFooterCompany] = useState(defaults.footerCompany || '')
+  const [footerAddress, setFooterAddress] = useState(defaults.footerAddress || '')
+  const [footerEmail, setFooterEmail] = useState(defaults.footerEmail || '')
+  const [footerWebsite, setFooterWebsite] = useState(defaults.footerWebsite || '')
+  const [footerTagline, setFooterTagline] = useState(defaults.footerTagline || '')
+  const [footerFb, setFooterFb] = useState(defaults.footerFb || '')
+  const [footerIg, setFooterIg] = useState(defaults.footerIg || '')
+  const [footerTw, setFooterTw] = useState(defaults.footerTw || '')
+  const [footerLi, setFooterLi] = useState(defaults.footerLi || '')
 
   // Utility Links
-  const [unsubscribeLink, setUnsubscribeLink] = useState('')
-  const [viewBrowserLink, setViewBrowserLink] = useState('')
+  const [unsubscribeLink, setUnsubscribeLink] = useState(defaults.unsubscribeLink || '')
+  const [viewBrowserLink, setViewBrowserLink] = useState(defaults.viewBrowserLink || '')
 
   // Generation state
   const [generatedHTML, setGeneratedHTML] = useState('')
