@@ -99,21 +99,23 @@ export default function App() {
   }
 
   function buildFooterHTML() {
+    const iconColor = primaryColor.replace('#', '')
+    const commonStyle = `font-family:'Poppins',Arial,sans-serif;font-size:11px;color:${primaryColor};line-height:1.4;`
     return `<table width="100%" cellpadding="0" cellspacing="0" style="background:#F4F4F4;border-top:1px solid #E0E0E0">
-  <tr><td style="padding:12px 20px;text-align:center;font-family:'Poppins',Arial,sans-serif;font-size:11px;color:#888888;line-height:1.4;">
+  <tr><td style="padding:12px 20px;text-align:center;${commonStyle}">
     ${logo ? `<img src="${logo.dataUrl}" style="max-height:36px;max-width:130px;object-fit:contain;display:block;margin:0 auto 6px" />` : ''}
-    ${footerCompany ? `<p style="font-size:13px;font-weight:bold;color:#333;margin:0 0 2px">${footerCompany}</p>` : ''}
-    ${footerAddress ? `<p style="margin:0 0 2px">${footerAddress}</p>` : ''}
-    ${footerEmail ? `<p style="margin:0 0 2px"><a href="mailto:${footerEmail}" target="_blank" style="color:${primaryColor}">${footerEmail}</a></p>` : ''}
-    ${footerWebsite ? `<p style="margin:0 0 6px"><a href="${footerWebsite}" target="_blank" style="color:${primaryColor}">${footerWebsite}</a></p>` : ''}
+    ${footerCompany ? `<p style="font-size:13px;font-weight:bold;color:${primaryColor};margin:0 0 2px">${footerCompany}</p>` : ''}
+    ${footerAddress ? `<p style="margin:0 0 2px;color:${primaryColor}">${footerAddress}</p>` : ''}
+    ${footerEmail ? `<p style="margin:0 0 2px"><a href="mailto:${footerEmail}" target="_blank" style="color:${primaryColor};font-weight:bold">${footerEmail}</a></p>` : ''}
+    ${footerWebsite ? `<p style="margin:0 0 6px"><a href="${footerWebsite}" target="_blank" style="color:${primaryColor};font-weight:bold">${footerWebsite}</a></p>` : ''}
     ${(footerFb || footerIg || footerTw || footerLi) ? `<p style="margin:8px 0;line-height:0">
-      ${footerFb ? `<a href="${footerFb}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/888888/facebook-new.png" width="18" height="18" alt="Facebook" style="display:block;border:none" /></a>` : ''}
-      ${footerIg ? `<a href="${footerIg}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/888888/instagram-new.png" width="18" height="18" alt="Instagram" style="display:block;border:none" /></a>` : ''}
-      ${footerTw ? `<a href="${footerTw}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/888888/twitter.png" width="18" height="18" alt="Twitter" style="display:block;border:none" /></a>` : ''}
-      ${footerLi ? `<a href="${footerLi}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/888888/linkedin.png" width="18" height="18" alt="LinkedIn" style="display:block;border:none" /></a>` : ''}
+      ${footerFb ? `<a href="${footerFb}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/${iconColor}/facebook-new.png" width="18" height="18" alt="Facebook" style="display:block;border:none" /></a>` : ''}
+      ${footerIg ? `<a href="${footerIg}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/${iconColor}/instagram-new.png" width="18" height="18" alt="Instagram" style="display:block;border:none" /></a>` : ''}
+      ${footerTw ? `<a href="${footerTw}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/${iconColor}/twitter.png" width="18" height="18" alt="Twitter" style="display:block;border:none" /></a>` : ''}
+      ${footerLi ? `<a href="${footerLi}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/${iconColor}/linkedin.png" width="18" height="18" alt="LinkedIn" style="display:block;border:none" /></a>` : ''}
     </p>` : ''}
-    ${footerTagline ? `<p style="font-size:10px;color:#aaa;margin:6px 0 2px">${footerTagline}</p>` : ''}
-    <p style="font-size:10px;color:#bbb;margin:4px 0 0">
+    ${footerTagline ? `<p style="font-size:10px;color:${primaryColor};margin:6px 0 2px;opacity:0.8">${footerTagline}</p>` : ''}
+    <p style="font-size:10px;color:${primaryColor};margin:4px 0 0;opacity:0.8">
       <a href="${unsubscribeLink || '#'}" target="_blank" style="color:${primaryColor}">Unsubscribe</a> &nbsp;·&nbsp;
       <a href="${viewBrowserLink || '#'}" target="_blank" style="color:${primaryColor}">View in browser</a>
     </p>
@@ -143,29 +145,31 @@ export default function App() {
       ? `<img src="{{LOGO_SRC}}" style="max-height:36px;max-width:130px;object-fit:contain;display:block;margin:0 auto 6px" />`
       : ''
 
+    const iconColor = primaryColor.replace('#', '')
     const footerHTML = `<table width="100%" cellpadding="0" cellspacing="0" style="background:#F4F4F4;border-top:1px solid #E0E0E0">
-  <tr><td style="padding:12px 20px;text-align:center;font-family:'Poppins',Arial,sans-serif;font-size:11px;color:#888888;line-height:1.4;">
+  <tr><td style="padding:12px 20px;text-align:center;font-family:'Poppins',Arial,sans-serif;font-size:11px;color:${primaryColor};line-height:1.4;">
     ${footerLogoPlaceholder}
-    ${footerCompany ? `<p style="font-size:13px;font-weight:bold;color:#333;margin:0 0 2px">${footerCompany}</p>` : ''}
-    ${footerAddress ? `<p style="margin:0 0 2px">${footerAddress}</p>` : ''}
-    ${footerEmail ? `<p style="margin:0 0 2px"><a href="mailto:${footerEmail}" target="_blank" style="color:${primaryColor}">${footerEmail}</a></p>` : ''}
-    ${footerWebsite ? `<p style="margin:0 0 6px"><a href="${footerWebsite}" target="_blank" style="color:${primaryColor}">${footerWebsite}</a></p>` : ''}
+    ${footerCompany ? `<p style="font-size:13px;font-weight:bold;color:${primaryColor};margin:0 0 2px">${footerCompany}</p>` : ''}
+    ${footerAddress ? `<p style="margin:0 0 2px;color:${primaryColor}">${footerAddress}</p>` : ''}
+    ${footerEmail ? `<p style="margin:0 0 2px"><a href="mailto:${footerEmail}" target="_blank" style="color:${primaryColor};font-weight:bold">${footerEmail}</a></p>` : ''}
+    ${footerWebsite ? `<p style="margin:0 0 6px"><a href="${footerWebsite}" target="_blank" style="color:${primaryColor};font-weight:bold">${footerWebsite}</a></p>` : ''}
     ${(footerFb || footerIg || footerTw || footerLi) ? `<p style="margin:8px 0;line-height:0">
-      ${footerFb ? `<a href="${footerFb}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/888888/facebook-new.png" width="18" height="18" alt="Facebook" style="display:block;border:none" /></a>` : ''}
-      ${footerIg ? `<a href="${footerIg}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/888888/instagram-new.png" width="18" height="18" alt="Instagram" style="display:block;border:none" /></a>` : ''}
-      ${footerTw ? `<a href="${footerTw}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/888888/twitter.png" width="18" height="18" alt="Twitter" style="display:block;border:none" /></a>` : ''}
-      ${footerLi ? `<a href="${footerLi}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/888888/linkedin.png" width="18" height="18" alt="LinkedIn" style="display:block;border:none" /></a>` : ''}
+      ${footerFb ? `<a href="${footerFb}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/${iconColor}/facebook-new.png" width="18" height="18" alt="Facebook" style="display:block;border:none" /></a>` : ''}
+      ${footerIg ? `<a href="${footerIg}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/${iconColor}/instagram-new.png" width="18" height="18" alt="Instagram" style="display:block;border:none" /></a>` : ''}
+      ${footerTw ? `<a href="${footerTw}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/${iconColor}/twitter.png" width="18" height="18" alt="Twitter" style="display:block;border:none" /></a>` : ''}
+      ${footerLi ? `<a href="${footerLi}" target="_blank" style="display:inline-block;margin:0 6px"><img src="https://img.icons8.com/ios-filled/50/${iconColor}/linkedin.png" width="18" height="18" alt="LinkedIn" style="display:block;border:none" /></a>` : ''}
     </p>` : ''}
-    ${footerTagline ? `<p style="font-size:10px;color:#aaa;margin:6px 0 2px">${footerTagline}</p>` : ''}
-    <p style="font-size:10px;color:#bbb;margin:4px 0 0">
+    ${footerTagline ? `<p style="font-size:10px;color:${primaryColor};margin:6px 0 2px;opacity:0.8">${footerTagline}</p>` : ''}
+    <p style="font-size:10px;color:${primaryColor};margin:4px 0 0;opacity:0.8">
       <a href="${unsubscribeLink || '#'}" target="_blank" style="color:${primaryColor}">Unsubscribe</a> &nbsp;·&nbsp;
       <a href="${viewBrowserLink || '#'}" target="_blank" style="color:${primaryColor}">View in browser</a>
     </p>
   </td></tr>
 </table>`
 
+    const imageTokenList = images.map((_, i) => `[IMAGE_${i + 1}]`).join(', ')
     const imageInstruction = images.length > 0 
-      ? `IMAGE PLACEMENT RULES: You MUST evenly distribute these exact user-provided images across the content sections. Place one image per section to visually complement the text. DO NOT cluster the images together or list them one after another without substantial text in between.\n\nUse these exact tags:\n${imgTags}`
+      ? `IMAGE PLACEMENT RULES: You MUST place these tokens EXACTLY as written (e.g. [IMAGE_1]) where the image should appear in the newsletter: ${imageTokenList}. Do not use <img> tags yourself. Just write the token on its own line between paragraphs.`
       : ''
 
     const prompt = `Create a complete HTML email newsletter.
@@ -187,7 +191,7 @@ DESIGN RULES: Add highly engaging thematic styling based on the topic! Use a bea
 
 2. ${sections} CONTENT SECTIONS — each MUST have an H2 heading and at least 2 detailed, engaging paragraphs of valuable content to ensure the text visually balances the images. Do not skip writing content.
 DESIGN RULES: Make the layout structured. Use a base font size of 14px, and line-height of 1.6. Use creative visual hierarchies: subtle background panels/cards.
-MANDATORY: You MUST include the following image tags EXACTLY as written below, distributed across the sections. If you don't use these tags, the images will not appear.
+MANDATORY: You MUST place the image tokens (e.g. [IMAGE_1]) exactly where you want the images to appear. I will handle the HTML tags for them later.
 ${imageInstruction}
 
 3. FOOTER — use this exact HTML block unmodified:
@@ -278,9 +282,16 @@ STRICT RULES:
 
       // Replace placeholders with actual base64 data URLs
       if (logo) {
+        const logoTag = `<img src="${logo.dataUrl}" style="max-height:36px;max-width:130px;object-fit:contain;display:block;margin:0 auto 6px" />`
         html = html.replace(/{{\s*LOGO_SRC\s*}}/gi, logo.dataUrl)
+        html = html.replace(/{{\s*LOGO_TAG\s*}}/gi, logoTag) // Fallback if it used the whole tag
       }
       images.forEach((img, i) => {
+        const fullImgTag = `<img src="${img.dataUrl}" alt="Content Image" style="max-width:100%;height:auto;display:block;margin:16px auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.08);" />`
+        const tokenRegex = new RegExp(`\\[\\s*IMAGE_${i + 1}\\s*\\]`, 'gi')
+        html = html.replace(tokenRegex, fullImgTag)
+        
+        // Also keep the old replacement just in case
         const placeholderRegex = new RegExp(`{{\\s*IMAGE_${i + 1}_SRC\\s*}}`, 'gi')
         html = html.replace(placeholderRegex, img.dataUrl)
       })
